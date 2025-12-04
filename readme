@@ -1,0 +1,11 @@
+Thứ tự chạy:
+
+1. docker compose up -d
+2. Vào localhost:8080 tạo kafka cluster như trong ảnh kafka-ui
+3. cd thư mục producer chạy python gen_data.py
+4. cd thư mục ad_predict chạy python main.py
+5. cd thư mục consumer chạy python flink_predict_kafka.python
+
+ở bươc 3,4,5 nhớ cài thư viện trong file requirement.txt ở mỗi folder
+
+- Thư mục bi: tại bắt data được lấy topic "traffic-predictions" của kafka để visualize dữ liệu
