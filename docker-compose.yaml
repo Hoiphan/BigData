@@ -26,3 +26,19 @@ services:
       - broker
     environment:
       DYNAMIC_CONFIG_ENABLED: 'true'
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"       # API Port (S3)
+      - "9001:9001"       # Console UI Port
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    # Lệnh start server và set port cho console UI
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+
+volumes:
+  minio_data:
